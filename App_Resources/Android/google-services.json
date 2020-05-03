@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "345280004879",
+    "firebase_url": "https://organizer-f2a55.firebaseio.com",
+    "project_id": "organizer-f2a55",
+    "storage_bucket": "organizer-f2a55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345280004879:android:4a6cef461406cf7b28b47a",
+        "android_client_info": {
+          "package_name": "org.nativescript.OrganizerWithFirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345280004879-airndljh73h5au28niir7nmnsm4eamls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQUEuQ80zTaFgPWgLH6VYY7QyPOuyJybo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345280004879-airndljh73h5au28niir7nmnsm4eamls.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "345280004879-apm7qvhbun1pi4qsou4in3c7gati5l44.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.OrganizerWithFirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
