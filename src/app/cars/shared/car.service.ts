@@ -3,7 +3,7 @@ import * as firebase from "nativescript-plugin-firebase";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 
-import { Car } from "./car.model";
+import { Note } from "./car.model";
 
 const editableProperties = [
     "doors",
@@ -28,15 +28,15 @@ const editableProperties = [
     providedIn: "root"
 })
 export class CarService {
-    private static cloneUpdateModel(car: Car): object {
+    private static cloneUpdateModel(car: Note): object {
         return editableProperties.reduce((a, e) => (a[e] = car[e], a), {}); // tslint:disable-line:ban-comma-operator
     }
 
-    private _cars: Array<Car> = [];
+    private _cars: Array<Note> = [];
 
     constructor(private _ngZone: NgZone) { }
 
-    getCarById(id: string): Car {
+    getCarById(id: string): Note {
         if (!id) {
             return;
         }
@@ -48,7 +48,7 @@ export class CarService {
 
     load(): Observable<any> {
         return new Observable((observer: any) => {
-            const path = "cars";
+            const path = "notes";
 
             const onValueEvent = (snapshot: any) => {
                 this._ngZone.run(() => {
@@ -60,7 +60,7 @@ export class CarService {
         }).pipe(catchError(this.handleErrors));
     }
 
-    update(carModel: Car): Promise<any> {
+    update(carModel: Note): Promise<any> {
         const updateModel = CarService.cloneUpdateModel(carModel);
 
         return firebase.update("/cars/" + carModel.id, updateModel);
@@ -74,13 +74,13 @@ export class CarService {
         });
     }
 
-    private handleSnapshot(data: any): Array<Car> {
+    private handleSnapshot(data: any): Array<Note> {
         this._cars = [];
 
         if (data) {
             for (const id in data) {
                 if (data.hasOwnProperty(id)) {
-                    this._cars.push(new Car(data[id]));
+                    this._cars.push(new Note(data[id]));
                 }
             }
         }

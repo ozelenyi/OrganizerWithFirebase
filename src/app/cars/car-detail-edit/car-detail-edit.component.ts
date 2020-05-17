@@ -4,7 +4,7 @@ import { switchMap } from "rxjs/operators";
 import { alert } from "tns-core-modules/ui/dialogs";
 
 import { CarEditService } from "../shared/car-edit.service";
-import { Car } from "../shared/car.model";
+import { Note } from "../shared/car.model";
 import { CarService } from "../shared/car.service";
 import { carClassList, carDoorList, carSeatList, carTransmissionList } from "./constants";
 
@@ -14,7 +14,7 @@ import { carClassList, carDoorList, carSeatList, carTransmissionList } from "./c
     styleUrls: ["./car-detail-edit.component.scss"]
 })
 export class CarDetailEditComponent implements OnInit {
-    private _car: Car;
+    private _car: Note;
     private _carClassOptions: Array<string> = [];
     private _carDoorOptions: Array<number> = [];
     private _carSeatOptions: Array<string> = [];
@@ -45,27 +45,27 @@ export class CarDetailEditComponent implements OnInit {
         return this._isUpdating;
     }
 
-    get car(): Car {
+    get car(): Note {
         return this._car;
     }
 
-    get pricePerDay(): number {
-        return this._car.price;
-    }
-
-    set pricePerDay(value: number) {
-        // force iOS UISlider to work with discrete steps
-        this._car.price = Math.round(value);
-    }
-
-    get luggageValue(): number {
-        return this._car.luggage;
-    }
-
-    set luggageValue(value: number) {
-        // force iOS UISlider to work with discrete steps
-        this._car.luggage = Math.round(value);
-    }
+    // get pricePerDay(): number {
+    //     return this._car.price;
+    // }
+    //
+    // set pricePerDay(value: number) {
+    //     // force iOS UISlider to work with discrete steps
+    //     this._car.price = Math.round(value);
+    // }
+    //
+    // get luggageValue(): number {
+    //     return this._car.luggage;
+    // }
+    //
+    // set luggageValue(value: number) {
+    //     // force iOS UISlider to work with discrete steps
+    //     this._car.luggage = Math.round(value);
+    // }
 
     get carClassOptions(): Array<string> {
         return this._carClassOptions;
@@ -83,14 +83,14 @@ export class CarDetailEditComponent implements OnInit {
         return this._carTransmissionOptions;
     }
 
-    get carImageUrl(): string {
-        return this._car.imageUrl;
-    }
-
-    set carImageUrl(value: string) {
-        this._car.imageUrl = value;
-        this._isCarImageDirty = true;
-    }
+    // get carImageUrl(): string {
+    //     return this._car.imageUrl;
+    // }
+    //
+    // set carImageUrl(value: string) {
+    //     this._car.imageUrl = value;
+    //     this._isCarImageDirty = true;
+    // }
 
     onCancelButtonTap(): void {
         this._routerExtensions.backToPreviousPage();

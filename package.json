@@ -14,6 +14,7 @@
   "scripts": {
     "lint": "tslint \"src/**/*.ts\"",
     "run android": "tns run android",
+    "debug android": "tns debug android",
     "run ios": "tns run ios"
   },
   "dependencies": {

@@ -4,7 +4,7 @@ import { PageRoute } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 
 import { CarEditService } from "../../shared/car-edit.service";
-import { Car } from "../../shared/car.model";
+import { Note } from "../../shared/car.model";
 import { MyListSelectorModalViewComponent } from "./my-list-selector-modal-view.component";
 
 const capitalizeFirstLetter = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -26,7 +26,7 @@ export class MyListSelectorComponent implements OnInit {
     @Input() selectedValue: string;
     @Output() selectedValueChange = new EventEmitter<string>();
 
-    private _carEditModel: Car;
+    private _carEditModel: Note;
 
     constructor(
         private _pageRoute: PageRoute,

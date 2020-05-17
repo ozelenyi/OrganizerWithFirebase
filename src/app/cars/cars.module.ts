@@ -10,13 +10,15 @@ import { MyListSelectorComponent } from "./car-detail-edit/my-list-selector/my-l
 import { CarDetailComponent } from "./car-detail/car-detail.component";
 import { CarListComponent } from "./car-list.component";
 import { CarsRoutingModule } from "./cars-routing.module";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
     imports: [
         CarsRoutingModule,
         NativeScriptCommonModule,
         NativeScriptFormsModule,
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        CommonModule
     ],
     declarations: [
         CarListComponent,

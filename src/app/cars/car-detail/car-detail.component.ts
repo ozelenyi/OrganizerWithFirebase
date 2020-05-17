@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { PageRoute, RouterExtensions } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 
-import { Car } from "../shared/car.model";
+import { Note } from "../shared/car.model";
 import { CarService } from "../shared/car.service";
 
 /* ***********************************************************
@@ -15,7 +15,7 @@ import { CarService } from "../shared/car.service";
     templateUrl: "./car-detail.component.html"
 })
 export class CarDetailComponent implements OnInit {
-    private _car: Car;
+    private _car: Note;
 
     constructor(
         private _carService: CarService,
@@ -42,7 +42,7 @@ export class CarDetailComponent implements OnInit {
             });
     }
 
-    get car(): Car {
+    get car(): Note {
         return this._car;
     }
 

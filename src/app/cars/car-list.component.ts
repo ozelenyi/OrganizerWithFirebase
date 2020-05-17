@@ -5,7 +5,7 @@ import { Subscription } from "rxjs";
 import { finalize } from "rxjs/operators";
 import { ObservableArray } from "tns-core-modules/data/observable-array";
 
-import { Car } from "./shared/car.model";
+import { Note } from "./shared/car.model";
 import { CarService } from "./shared/car.service";
 
 @Component({
@@ -15,7 +15,7 @@ import { CarService } from "./shared/car.service";
 })
 export class CarListComponent implements OnInit, OnDestroy {
     private _isLoading: boolean = false;
-    private _cars: ObservableArray<Car> = new ObservableArray<Car>([]);
+    private _notes: ObservableArray<Note> = new ObservableArray<Note>([]);
     private _dataSubscription: Subscription;
 
     constructor(
@@ -24,13 +24,14 @@ export class CarListComponent implements OnInit, OnDestroy {
     ) { }
 
     ngOnInit(): void {
+        console.log(this._notes);
         if (!this._dataSubscription) {
             this._isLoading = true;
 
             this._dataSubscription = this._carService.load()
                 .pipe(finalize(() => this._isLoading = false))
-                .subscribe((cars: Array<Car>) => {
-                    this._cars = new ObservableArray(cars);
+                .subscribe((cars: Array<Note>) => {
+                    this._notes = new ObservableArray(cars);
                     this._isLoading = false;
                 });
         }
@@ -43,8 +44,8 @@ export class CarListComponent implements OnInit, OnDestroy {
         }
     }
 
-    get cars(): ObservableArray<Car> {
-        return this._cars;
+    get notes(): ObservableArray<Note> {
+        return this._notes;
     }
 
     get isLoading(): boolean {
